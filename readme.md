@@ -6,4 +6,4 @@
 
 ### `docker build . -t goblino ` build docker image
 
-### `docker run -p 80:80 -it goblino` run docker image on port 80
+### `docker run -p 8080:8080 -it goblino` run docker image on port 8080

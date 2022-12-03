@@ -2,7 +2,7 @@ FROM node:16
 
 WORKDIR /usr/src/app
 
-ENV PORT=80
+ENV PORT=8080
 
 COPY . .
 
@@ -10,6 +10,6 @@ RUN npm ci
 
 RUN node deployCommands.js
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD node index.js
