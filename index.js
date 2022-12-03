@@ -5,6 +5,8 @@ const { Client, Collection, Events, GatewayIntentBits, Attachment} = require('di
 const { token, ownerId, botId, theLabId } = process.env
 const getRandomInsult = require('./utils/insultGen')
 
+console.log(process.env, 'env variables')
+
 // create a new client isntance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]})
 

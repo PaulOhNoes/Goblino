@@ -3,8 +3,6 @@ require('dotenv').config()
 const { clientId, guildId, token } = process.env
 const fs = require('node:fs');
 
-console.log(process.env, 'env variables')
-
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
