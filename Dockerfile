@@ -8,7 +8,7 @@ COPY . .
 
 RUN npm ci
 
-RUN node deployComands.js
+RUN node deployCommands.js
 
 EXPOSE 80
 
