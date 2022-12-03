@@ -10,4 +10,6 @@ RUN npm ci
 
 RUN node deployCommands.js
 
+EXPOSE $PORT
+
 CMD node index.js
