@@ -60,7 +60,7 @@ client.on(Events.MessageCreate, async message => {
 
   if (message.mentions?.repliedUser?.id === botId || message.mentions.users.has(botId)){
     await message.reply({ files: [{
-        attachment:`C:/Users/Paul/Documents/Goblino/images/campRock.jpg`,
+        attachment:`images/campRock.jpg`,
         name: 'campRock.jpg',
         description: 'loud bitch from camp rock',
       }]
