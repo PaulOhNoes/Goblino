@@ -47,7 +47,7 @@ const trivia = [
   "One time Leo the cat bit Paul's toe while he was sleeping",
   "Mari has been in the grips of a battle with crippling autism since 1997",
   "Young Sebastian hates being alone in phasmophobia",
-  "Mari will get everyone killed if she's sees a cursed possession ",
+  "Mari will get everyone killed if she's sees a cursed possession",
 ]
 
 const getRandomTriva = () => {

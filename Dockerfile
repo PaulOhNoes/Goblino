@@ -8,6 +8,8 @@ COPY . .
 
 RUN npm ci
 
+RUN node deployCommands.js
+
 EXPOSE 8080
 
 CMD node index.js
