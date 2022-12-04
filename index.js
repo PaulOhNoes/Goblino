@@ -2,9 +2,8 @@ require('dotenv').config()
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, Attachment} = require('discord.js')
-const { token, ownerId, botId, hostChannelId, dev } = process.env
+const { token, hostChannelId, dev } = process.env
 
-const getRandomInsult = require('./utils/insultGen')
 const messageGen = require('./utils/messageGen')
 
 // create a new client isntance
