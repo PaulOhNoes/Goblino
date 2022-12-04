@@ -2,10 +2,10 @@ require('dotenv').config()
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, Attachment} = require('discord.js')
-const { token, ownerId, botId, theLabId } = process.env
-const getRandomInsult = require('./utils/insultGen')
+const { token, ownerId, botId, hostChannelId, dev } = process.env
 
-console.log(process.env, 'env variables')
+const getRandomInsult = require('./utils/insultGen')
+const messageGen = require('./utils/messageGen')
 
 // create a new client isntance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]})
@@ -26,7 +26,8 @@ client.once(Events.ClientReady, c => {
     console.log(`Ready! Logged in as ${c.user.tag}`)
     console.log(`Chat Log:`)
     console.log(`------------------------------------`)
-    c.channels.cache.get(theLabId).send('IM ALIVE BITCHES')
+    c.channels.cache.get(hostChannelId)
+      .send(!!dev ? 'TESTING' : 'IM ALIVE BITCHES')
   }
   catch(error){
     console.error(error)
@@ -54,21 +55,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // listens to messages and replies to them
 client.on(Events.MessageCreate, async message => {
-  const randomInt = Math.floor(Math.random() * 1000)
-
-  if (message.author.id !== ownerId && message.author.id !== botId && randomInt > 900){
-    await message.reply(getRandomInsult())
-  }
-
-  if (message.mentions?.repliedUser?.id === botId || message.mentions.users.has(botId)){
-    await message.reply({ files: [{
-        attachment:`images/campRock.jpg`,
-        name: 'campRock.jpg',
-        description: 'loud bitch from camp rock',
-      }]
-    })
-  }
-  
+  messageGen(message)
   console.log(`${message.author.username} in #${message.channel.name}: ${message.content}`)
 })
 
