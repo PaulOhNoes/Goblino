@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { ownerId, botId } = process.env
-const getRandomInsult = require('./utils/insultGen')
+const getRandomInsult = require('../utils/insultGen')
 
 const messageGen = async (message) => {
   const randomInt = Math.floor(Math.random() * 1000)
